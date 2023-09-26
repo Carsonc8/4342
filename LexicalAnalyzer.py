@@ -19,12 +19,12 @@ import sys
 IDENTIFIER_REGEX = [r'[a-zA-Z_d]\w*']
 #any numbers with any combination
 INTEGER_TOKENS = ['\d+']
-ADDITION_TOKEN = []
-MULTIPLYING_TOKEN = []
-SPECIAL_KEYWORD = []
-ASSIGNMENT_OPERATOR = []
-RELATIONAL_TOKEN = []
-DATA_TYPE_TOKEN = []
+ADDITION_TOKEN = [r'+',r'-',r'or',]
+MULTIPLYING_TOKEN = [r'*',r'div',r'and',]
+SPECIAL_KEYWORD = [r'',]
+ASSIGNMENT_OPERATOR = [r':=',]
+RELATIONAL_TOKEN = [r'=',r'<>',r'<',r'<=',r'>='r'>']
+DATA_TYPE_TOKEN = [r'Integer',r'Boolean',r'true',r'false']
 
 """
 for patterns in IDENTIFIER_REGEX:
