@@ -26,6 +26,10 @@ ASSIGNMENT_OPERATOR = [r':=',]
 RELATIONAL_TOKEN = [r'=',r'<>',r'<',r'<=',r'>='r'>']
 DATA_TYPE_TOKEN = [r'Integer',r'Boolean',r'true',r'false']
 
+
+
+
+
 """
 for patterns in IDENTIFIER_REGEX:
     alpha = re.findall(patterns, "f")
@@ -47,3 +51,18 @@ if special:
 else:
     print("Not Valid Identifier")
 """
+
+
+def readFile():
+    with open("input.txt", "r") as f:
+        for line in f:
+            for word in line.split():
+                if word == "program":
+                    print("yes")
+            else:
+                print("Asdfasdf")
+def main():
+    readFile()
+
+if __name__ == "__main__":
+    main()
