@@ -17,14 +17,14 @@ import sys
 
 # r converts it to a raw string. Then reads as any letter from a-zA-Z along with an _ that allows any combination of letters.
 IDENTIFIER_REGEX = [r'[a-zA-Z_d]\w*']
-#any numbers with any combination
+# any numbers with any combination
 INTEGER_TOKENS = ['\d+']
 ADDITION_TOKEN = [r'+',r'-',r'or',]
-MULTIPLYING_TOKEN = [r'*',r'div',r'and',]
-SPECIAL_KEYWORD = [r'',]
-ASSIGNMENT_OPERATOR = [r':=',]
-RELATIONAL_TOKEN = [r'=',r'<>',r'<',r'<=',r'>='r'>']
-DATA_TYPE_TOKEN = [r'Integer',r'Boolean',r'true',r'false']
+MULTIPLYING_TOKEN = ['*','div','and',]
+SPECIAL_KEYWORD = ['begin','procedure',]
+ASSIGNMENT_OPERATOR = [':=',]
+RELATIONAL_TOKEN = ['=','<>','<','<=','>=''>']
+DATA_TYPE_TOKEN = ['Integer','Boolean','true','false']
 
 
 
@@ -34,33 +34,55 @@ DATA_TYPE_TOKEN = [r'Integer',r'Boolean',r'true',r'false']
 for patterns in IDENTIFIER_REGEX:
     alpha = re.findall(patterns, "f")
 
-if alpha:
-    print("Valid Letter Identifier")
-else:
-    print("Not Valid Identifier")
-for numPatterns in INTEGER_TOKENS:
-    num = re.findall(numPatterns, "30")
-if num:
-    print("Valid Number Identifier")
-else:
-    print("Not Valid Identifier")
-for specialPat in SPECIAL_TOKENS:
-    special = re.findall(specialPat, ";")
-if special:
-    print("Valid Special Identifier")
-else:
-    print("Not Valid Identifier")
+IDENTIFIER_REGEX = [r'[a-zA-Z_d]\w*']
+# any numbers with any combination
+INTEGER_TOKENS = ['\d+']
+ADDITION_TOKEN = [r'+',r'-',r'or',]
+MULTIPLYING_TOKEN = [r'*',r'div',r'and',]
+SPECIAL_KEYWORD = [r'',]
+ASSIGNMENT_OPERATOR = [r':=',]
+RELATIONAL_TOKEN = [r'=',r'<>',r'<',r'<=',r'>='r'>']
+DATA_TYPE_TOKEN = [r'Integer',r'Boolean',r'true',r'false']
+
 """
 
-
 def readFile():
-    with open("input.txt", "r") as f:
-        for line in f:
-            for word in line.split():
-                if word == "program":
-                    print("yes")
-            else:
-                print("Asdfasdf")
+    with open("input.txt".replace(r'\n', '\n'), "r") as f:
+        readlines = f.readlines()
+
+    for ir in IDENTIFIER_REGEX:
+        for lines in readlines:
+            if ir in lines:
+                print(lines.strip()[0] + " : Identifier Token")
+    for it in INTEGER_TOKENS:
+        for lines in readlines:
+            if it in lines:
+                print(it + " : Integer Token")
+    for adt in ADDITION_TOKEN:
+        for lines in readlines:
+            if adt in lines:
+                print(adt + " : Addition Token")
+    for multit in MULTIPLYING_TOKEN:
+        for lines in readlines:
+            if multit in lines:
+                print(multit + " : Multiplying Token")
+    for spect in SPECIAL_KEYWORD:
+        for lines in readlines:
+            if spect in lines:
+                print(spect + " : Special Keyword Token")
+    for asignt in ASSIGNMENT_OPERATOR:
+        for lines in readlines:
+            if asignt in lines:
+                print(asignt + " : Assignment Token")
+    for relt in RELATIONAL_TOKEN:
+        for lines in readlines:
+            if relt in lines:
+                print(relt + " : Relational Token")
+    for dtt in DATA_TYPE_TOKEN:
+        for lines in readlines:
+            if dtt in lines:
+                print(dtt + " : Data Type Token")
+    
 def main():
     readFile()
 
