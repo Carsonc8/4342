@@ -47,5 +47,15 @@ for keyword in keywords:
 
 if (readInLines) not in zip(productList, cowList, keywords):
     print(lines + " is not a valid identifier")
+import string
+
+# initializing empty list
+test_list = []
+
+# using string for filling alphabets
+test_list = list(string.ascii_uppercase + string.ascii_lowercase)
+
+# printing resultant list
+print ("List after insertion : " + str(test_list))
 
             
